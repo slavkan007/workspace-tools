@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { getWorkspaceImplementationAndLockFile } from ".";
 import { getPackagePaths } from "../../getPackagePaths";
+import { WorkspaceInfo } from "../../types/WorkspaceInfo";
 import { getWorkspacePackageInfo } from "../getWorkspacePackageInfo";
 
 type PackageJsonWorkspaces = {
@@ -44,13 +45,12 @@ function getPackages(packageJson: PackageJsonWorkspaces): string[] {
   return workspaces.packages;
 }
 
-export function getWorkspaceInfoFromWorkspaceRoot(packageJsonWorkspacesRoot: string) {
+export function getWorkspaceInfoFromWorkspaceRoot(packageJsonWorkspacesRoot: string): WorkspaceInfo[] {
   try {
     const rootPackageJson = getRootPackageJson(packageJsonWorkspacesRoot);
     const packages = getPackages(rootPackageJson);
     const packagePaths = getPackagePaths(packageJsonWorkspacesRoot, packages);
-    const workspaceInfo = getWorkspacePackageInfo(packagePaths);
-    return workspaceInfo;
+    return getWorkspacePackageInfo(packagePaths);
   } catch {
     return [];
   }

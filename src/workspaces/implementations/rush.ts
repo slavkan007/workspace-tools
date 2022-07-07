@@ -16,7 +16,7 @@ export function getRushWorkspaceRoot(cwd: string): string {
   return path.dirname(rushJsonPath);
 }
 
-export function getRushWorkspaces(cwd: string): WorkspaceInfo {
+export function getRushWorkspaces(cwd: string): WorkspaceInfo[] {
   try {
     const rushWorkspaceRoot = getRushWorkspaceRoot(cwd);
     const rushJsonPath = path.join(rushWorkspaceRoot, "rush.json");

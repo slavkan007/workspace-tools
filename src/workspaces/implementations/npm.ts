@@ -11,7 +11,7 @@ export function getNpmWorkspaceRoot(cwd: string): string {
   return npmWorkspacesRoot;
 }
 
-export function getNpmWorkspaces(cwd: string): WorkspaceInfo {
+export function getNpmWorkspaces(cwd: string): WorkspaceInfo[] {
   const npmWorkspacesRoot = getNpmWorkspaceRoot(cwd);
   return getWorkspaceInfoFromWorkspaceRoot(npmWorkspacesRoot);
 }

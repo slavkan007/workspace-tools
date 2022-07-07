@@ -11,7 +11,7 @@ export function getYarnWorkspaceRoot(cwd: string): string {
   return yarnWorkspacesRoot;
 }
 
-export function getYarnWorkspaces(cwd: string): WorkspaceInfo {
+export function getYarnWorkspaces(cwd: string): WorkspaceInfo[] {
   const yarnWorkspacesRoot = getYarnWorkspaceRoot(cwd);
   return getWorkspaceInfoFromWorkspaceRoot(yarnWorkspacesRoot);
 }

@@ -3,35 +3,30 @@ import fs from "fs";
 import { WorkspaceInfo } from "../types/WorkspaceInfo";
 import { PackageInfo } from "../types/PackageInfo";
 
-export function getWorkspacePackageInfo(
-  workspacePaths: string[]
-): WorkspaceInfo {
+export function getWorkspacePackageInfo(workspacePaths: string[]): WorkspaceInfo[] {
   if (!workspacePaths) {
     return [];
   }
 
-  return workspacePaths.reduce<WorkspaceInfo>((returnValue, workspacePath) => {
-    let packageJson: PackageInfo;
-    const packageJsonPath = path.join(workspacePath, "package.json");
+  return workspacePaths
+    .map<WorkspaceInfo | undefined>((workspacePath) => {
+      let packageJson: PackageInfo;
+      const packageJsonPath = path.join(workspacePath, "package.json");
 
-    try {
-      packageJson = JSON.parse(
-        fs.readFileSync(packageJsonPath, "utf-8")
-      ) as PackageInfo;
-    } catch {
-      return returnValue;
-    }
+      try {
+        packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8")) as PackageInfo;
+      } catch {
+        return;
+      }
 
-    return [
-      ...returnValue,
-      {
+      return {
         name: packageJson.name,
         path: workspacePath,
         packageJson: {
           ...packageJson,
           packageJsonPath,
         },
-      },
-    ];
-  }, []);
+      };
+    })
+    .filter((w): w is WorkspaceInfo => !!w);
 }

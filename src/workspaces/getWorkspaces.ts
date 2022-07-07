@@ -5,7 +5,7 @@ import { WorkspaceManager } from "./WorkspaceManager";
 
 const preferred = process.env.PREFERRED_WORKSPACE_MANAGER as WorkspaceManager | null;
 
-export function getWorkspaces(cwd: string): WorkspaceInfo {
+export function getWorkspaces(cwd: string): WorkspaceInfo[] {
   const workspaceImplementation = preferred || getWorkspaceImplementation(cwd);
 
   if (!workspaceImplementation) {
