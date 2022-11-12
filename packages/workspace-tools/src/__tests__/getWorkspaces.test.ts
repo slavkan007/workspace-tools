@@ -25,8 +25,8 @@ describe("getWorkspaces", () => {
       const packageBPath = path.join(packageRoot, "packages", "package-b");
 
       expect(workspacesPackageInfo).toMatchObject([
-        { name: "package-a", path: packageAPath },
-        { name: "package-b", path: packageBPath },
+        { name: "@monorepo/package-a", path: packageAPath },
+        { name: "@monorepo/package-b", path: packageBPath },
       ]);
     });
 
@@ -42,9 +42,9 @@ describe("getWorkspaces", () => {
       const individualPath = path.join(packageRoot, "individual");
 
       expect(workspacesPackageInfo).toMatchObject([
-        { name: "package-a", path: packageAPath },
-        { name: "package-b", path: packageBPath },
-        { name: "individual", path: individualPath },
+        { name: "@monorepo-globby/package-a", path: packageAPath },
+        { name: "@monorepo-globby/package-b", path: packageBPath },
+        { name: "@monorepo-globby/individual", path: individualPath },
       ]);
     });
   });
@@ -61,8 +61,8 @@ describe("getWorkspaces", () => {
       const packageBPath = path.join(packageRoot, "packages", "package-b");
 
       expect(workspacesPackageInfo).toMatchObject([
-        { name: "package-a", path: packageAPath },
-        { name: "package-b", path: packageBPath },
+        { name: "@monorepo-pnpm/package-a", path: packageAPath },
+        { name: "@monorepo-pnpm/package-b", path: packageBPath },
       ]);
     });
   });
@@ -79,8 +79,8 @@ describe("getWorkspaces", () => {
       const packageBPath = path.join(packageRoot, "packages", "package-b");
 
       expect(workspacesPackageInfo).toMatchObject([
-        { name: "package-a", path: packageAPath },
-        { name: "package-b", path: packageBPath },
+        { name: "@monorepo-rush-pnpm/package-a", path: packageAPath },
+        { name: "@monorepo-rush-pnpm/package-b", path: packageBPath },
       ]);
     });
   });
@@ -97,8 +97,8 @@ describe("getWorkspaces", () => {
       const packageBPath = path.join(packageRoot, "packages", "package-b");
 
       expect(workspacesPackageInfo).toMatchObject([
-        { name: "package-a", path: packageAPath },
-        { name: "package-b", path: packageBPath },
+        { name: "@monorepo-rush-yarn/package-a", path: packageAPath },
+        { name: "@monorepo-rush-yarn/package-b", path: packageBPath },
       ]);
     });
   });
@@ -115,8 +115,8 @@ describe("getWorkspaces", () => {
       const packageBPath = path.join(packageRoot, "packages", "package-b");
 
       expect(workspacesPackageInfo).toMatchObject([
-        { name: "package-a", path: packageAPath },
-        { name: "package-b", path: packageBPath },
+        { name: "@monorepo-npm/package-a", path: packageAPath },
+        { name: "@monorepo-npm/package-b", path: packageBPath },
       ]);
     });
 
@@ -132,9 +132,9 @@ describe("getWorkspaces", () => {
       const individualPath = path.join(packageRoot, "individual");
 
       expect(workspacesPackageInfo).toMatchObject([
-        { name: "package-a", path: packageAPath },
-        { name: "package-b", path: packageBPath },
-        { name: "individual", path: individualPath },
+        { name: "@monorepo-shorthand/package-a", path: packageAPath },
+        { name: "@monorepo-shorthand/package-b", path: packageBPath },
+        { name: "@monorepo-shorthand/individual", path: individualPath },
       ]);
     });
   });
@@ -151,8 +151,8 @@ describe("getWorkspaces", () => {
       const packageBPath = path.join(packageRoot, "packages", "package-b");
 
       expect(workspacesPackageInfo).toMatchObject([
-        { name: "package-a", path: packageAPath },
-        { name: "package-b", path: packageBPath },
+        { name: "@monorepo-lerna-npm/package-a", path: packageAPath },
+        { name: "@monorepo-lerna-npm/package-b", path: packageBPath },
       ]);
     });
   });

@@ -5,9 +5,9 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"basic@workspace:.":
+"basic-2@workspace:.":
   version: 0.0.0-use.local
-  resolution: "basic@workspace:."
+  resolution: "basic-2@workspace:."
   dependencies:
     is-number: ^7.0.0
   languageName: unknown

@@ -6,11 +6,11 @@
 
   "projects": [
     {
-      "packageName": "package-a",
+      "packageName": "@monorepo-rush-pnpm/package-a",
       "projectFolder": "packages/package-a"
     },
     {
-      "packageName": "package-b",
+      "packageName": "@monorepo-rush-pnpm/package-b",
       "projectFolder": "packages/package-b"
     }
   ]

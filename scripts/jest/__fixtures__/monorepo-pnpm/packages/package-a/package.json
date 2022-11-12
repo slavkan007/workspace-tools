@@ -1,5 +1,5 @@
 {
-  "name": "package-a",
+  "name": "@monorepo-pnpm/package-a",
   "license": "MIT",
   "version": "0.1.0"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "package-b",
+  "name": "@monorepo-lerna-npm/package-b",
   "license": "MIT",
   "version": "0.1.0"
 }

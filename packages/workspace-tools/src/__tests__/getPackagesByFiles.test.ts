@@ -17,7 +17,7 @@ describe("getPackagesByFiles", () => {
 
     const packages = getPackagesByFiles(root, ["packages/package-a/footest.txt"]);
 
-    expect(packages).toEqual(["package-a"]);
+    expect(packages).toEqual(["@monorepo/package-a"]);
   });
 
   it("can find can ignore changes in a glob pattern", () => {
@@ -35,7 +35,7 @@ describe("getPackagesByFiles", () => {
       ["packages/package-b/**"]
     );
 
-    expect(packages).toEqual(["package-a"]);
+    expect(packages).toEqual(["@monorepo/package-a"]);
   });
 
   it("can find can handle empty files", () => {

@@ -18,7 +18,7 @@ describe("getChangedPackages", () => {
 
     const changedPkgs = getChangedPackages(root, "main");
 
-    expect(changedPkgs).toEqual(["package-a"]);
+    expect(changedPkgs).toEqual(["@monorepo/package-a"]);
   });
 
   it("can detect changes inside an untracked file in a nested monorepo", () => {
@@ -29,7 +29,7 @@ describe("getChangedPackages", () => {
 
     const changedPkgs = getChangedPackages(root, "main");
 
-    expect(changedPkgs).toEqual(["package-a"]);
+    expect(changedPkgs).toEqual(["@monorepo-nested/package-a"]);
   });
 
   it("can detect changes when multiple files are changed", () => {
@@ -42,7 +42,7 @@ describe("getChangedPackages", () => {
 
     const changedPkgs = getChangedPackages(root, "main");
 
-    expect(changedPkgs).toEqual(["package-a", "package-b"]);
+    expect(changedPkgs).toEqual(["@monorepo-nested/package-a", "@monorepo-nested/package-b"]);
   });
 
   it("can ignore changes when multiple files are changed", () => {
@@ -68,7 +68,7 @@ describe("getChangedPackages", () => {
 
     const changedPkgs = getChangedPackages(root, "main");
 
-    expect(changedPkgs).toEqual(["package-a"]);
+    expect(changedPkgs).toEqual(["@monorepo/package-a"]);
   });
 
   it("can detect changes inside an unstaged file in a nested monorepo", () => {
@@ -79,7 +79,7 @@ describe("getChangedPackages", () => {
 
     const changedPkgs = getChangedPackages(root, "main");
 
-    expect(changedPkgs).toEqual(["package-a"]);
+    expect(changedPkgs).toEqual(["@monorepo-nested/package-a"]);
   });
 
   it("can detect changes inside a staged file", () => {
@@ -91,7 +91,7 @@ describe("getChangedPackages", () => {
 
     const changedPkgs = getChangedPackages(root, "main");
 
-    expect(changedPkgs).toEqual(["package-a"]);
+    expect(changedPkgs).toEqual(["@monorepo/package-a"]);
   });
 
   it("can detect changes inside a staged file in a nested monorepo", () => {
@@ -103,7 +103,7 @@ describe("getChangedPackages", () => {
 
     const changedPkgs = getChangedPackages(root, "main");
 
-    expect(changedPkgs).toEqual(["package-a"]);
+    expect(changedPkgs).toEqual(["@monorepo-nested/package-a"]);
   });
 
   it("can detect changes inside a file that has been committed in a different branch", () => {
@@ -116,7 +116,7 @@ describe("getChangedPackages", () => {
 
     const changedPkgs = getChangedPackages(root, "main");
 
-    expect(changedPkgs).toEqual(["package-a"]);
+    expect(changedPkgs).toEqual(["@monorepo/package-a"]);
   });
 
   it("can detect changes inside a file that has been committed in a different branch in a nested monorepo", () => {
@@ -129,7 +129,7 @@ describe("getChangedPackages", () => {
 
     const changedPkgs = getChangedPackages(root, "main");
 
-    expect(changedPkgs).toEqual(["package-a"]);
+    expect(changedPkgs).toEqual(["@monorepo-nested/package-a"]);
   });
 
   it("can detect changes inside a file that has been committed in a different branch using default remote", () => {
@@ -143,7 +143,7 @@ describe("getChangedPackages", () => {
 
     const changedPkgs = getChangedPackages(root, undefined);
 
-    expect(changedPkgs).toContain("package-a");
+    expect(changedPkgs).toContain("@monorepo/package-a");
   });
 
   it("can ignore glob patterns in detecting changes", () => {
@@ -174,8 +174,7 @@ describe("getChangedPackages", () => {
 
       const changedPkgs = getChangedPackagesBetweenRefs(root, "HEAD^1", "HEAD");
 
-      expect(changedPkgs).toContain("package-b");
-      expect(changedPkgs).not.toContain("package-a");
+      expect(changedPkgs).toEqual(["@monorepo/package-b"]);
     });
   });
 });
